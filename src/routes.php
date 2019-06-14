@@ -2,19 +2,6 @@
 
 Route::group(['middleware' => 'web'], function () {
 
-    // auth
-    Route::get('admin/login', config('lap.controllers.auth.login') . '@loginForm')->name('admin.login');
-    Route::post('admin/login', config('lap.controllers.auth.login') . '@login');
-    Route::post('admin/logout', config('lap.controllers.auth.login') . '@logout')->name('admin.logout');
-    Route::get('admin/profile', config('lap.controllers.auth.profile') . '@updateForm')->name('admin.profile');
-    Route::patch('admin/profile', config('lap.controllers.auth.profile') . '@update');
-    Route::get('admin/password/change', config('lap.controllers.auth.change_password') . '@changeForm')->name('admin.password.change');
-    Route::patch('admin/password/change', config('lap.controllers.auth.change_password') . '@change');
-    Route::get('admin/password/reset', config('lap.controllers.auth.forgot_password') . '@emailForm')->name('admin.password.request');
-    Route::post('admin/password/email', config('lap.controllers.auth.forgot_password') . '@sendResetLinkEmail')->name('admin.password.email');
-    Route::get('admin/password/reset/{token?}', config('lap.controllers.auth.reset_password') . '@resetForm')->name('admin.password.reset');
-    Route::post('admin/password/reset', config('lap.controllers.auth.reset_password') . '@reset')->name('admin.password.update');
-
     // backend
     Route::get('admin', config('lap.controllers.backend') . '@index')->name('admin');
     Route::get('admin/dashboard', config('lap.controllers.backend') . '@dashboard')->name('admin.dashboard');
