@@ -33,6 +33,6 @@ class LoginController extends Controller
 
     protected function loggedOut(Request $request)
     {
-        return redirect()->route('admin.login');
+        return redirect()->route('login');
     }
 }
