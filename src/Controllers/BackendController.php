@@ -14,7 +14,7 @@ class BackendController extends Controller
 
     public function index()
     {
-        return redirect()->route('admin.' . (auth()->check() ? 'dashboard' : 'login'));
+        return redirect()->route((auth()->check() ? 'admin.dashboard' : 'login'));
     }
 
     public function dashboard()
