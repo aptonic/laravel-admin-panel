@@ -8,16 +8,10 @@ Route::group(['middleware' => 'web'], function () {
     Route::patch('admin/profile', config('lap.controllers.auth.profile') . '@update');	
     Route::get('admin/password/change', config('lap.controllers.auth.change_password') . '@changeForm')->name('admin.password.change');	
     Route::patch('admin/password/change', config('lap.controllers.auth.change_password') . '@change');	
-    Route::get('admin/password/reset', config('lap.controllers.auth.forgot_password') . '@emailForm')->name('admin.password.request');	
-    Route::post('admin/password/email', config('lap.controllers.auth.forgot_password') . '@sendResetLinkEmail')->name('admin.password.email');	
-    Route::get('admin/password/reset/{token?}', config('lap.controllers.auth.reset_password') . '@resetForm')->name('admin.password.reset');	
-    Route::post('admin/password/reset', config('lap.controllers.auth.reset_password') . '@reset')->name('admin.password.update');	
 
     // backend
     Route::get('admin', config('lap.controllers.backend') . '@index')->name('admin');
     Route::get('admin/dashboard', config('lap.controllers.backend') . '@dashboard')->name('admin.dashboard');
-    Route::get('admin/settings', config('lap.controllers.backend') . '@settingsForm')->name('admin.settings');
-    Route::patch('admin/settings', config('lap.controllers.backend') . '@settings');
 
     // role
     Route::get('admin/roles', config('lap.controllers.role') . '@index')->name('admin.roles');
